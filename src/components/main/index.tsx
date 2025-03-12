@@ -1,3 +1,5 @@
+import { Wrapper } from './styles'
+
 export function Main() {
-  return <h1>Main</h1>
+  return <Wrapper>Main</Wrapper>
 }
