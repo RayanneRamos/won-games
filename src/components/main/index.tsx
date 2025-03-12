@@ -1,5 +1,5 @@
-import { Wrapper } from './styles'
+import * as S from './styles'
 
 export function Main() {
-  return <Wrapper>Main</Wrapper>
+  return <S.Wrapper>Main</S.Wrapper>
 }
