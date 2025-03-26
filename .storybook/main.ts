@@ -15,6 +15,11 @@ const config = {
   docs: {
     autodocs: true
   },
-  staticDirs: ['..\\public']
+  staticDirs: ['..\\public'],
+  webpackFinal: (config) => {
+    config.resolve.modules.push(`${process.cwd()}/src`)
+
+    return config
+  }
 }
 export default config
