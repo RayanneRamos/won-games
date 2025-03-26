@@ -1,6 +1,6 @@
 module.exports = (plop) => {
-  plop.setGenerator('components', {
-    description: 'create a component',
+  plop.setGenerator('component', {
+    description: 'Create a component',
     prompts: [
       {
         type: 'input',
