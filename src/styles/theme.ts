@@ -1,3 +1,5 @@
+'use client'
+
 export default {
   grid: {
     container: '130rem',
