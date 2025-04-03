@@ -8,17 +8,17 @@ import Logo from '../Logo'
 const Menu = () => (
   <S.Wrapper>
     <S.IconWrapper>
-      <MenuIcon />
+      <MenuIcon aria-label="open menu" />
     </S.IconWrapper>
     <S.LogoWrapper>
-      <Logo $hideOnMobile={true} />
+      <Logo $hideOnMobile={true} aria-label="won games" />
     </S.LogoWrapper>
     <S.MenuGroup>
       <S.IconWrapper>
-        <SearchIcon />
+        <SearchIcon aria-label="search" />
       </S.IconWrapper>
       <S.IconWrapper>
-        <ShoppingCartIcon />
+        <ShoppingCartIcon aria-label="open shopping cart" />
       </S.IconWrapper>
     </S.MenuGroup>
   </S.Wrapper>
