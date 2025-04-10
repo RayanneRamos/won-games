@@ -5,10 +5,11 @@ export default {
   title: 'Highlight',
   component: Highlight,
   args: {
-    title: "Read Ded it's back",
+    title: "Red Dead it's back",
     subtitle: "Come see John's new adventures",
     buttonLabel: 'Buy now',
-    buttonLink: '/read-dead-redemption-2'
+    buttonLink: '/read-dead-redemption-2',
+    backgroundImage: '/images/red-dead-redemption-banner.png'
   }
 } as Meta
 

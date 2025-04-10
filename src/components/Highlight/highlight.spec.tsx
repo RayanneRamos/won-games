@@ -1,12 +1,14 @@
 import { render, screen } from '@testing-library/react'
 import Highlight from '.'
 import { renderWithTheme } from '@/utils/tests/helpers'
+import { backgroundImages } from 'polished'
 
 const props = {
   title: 'Heading 1',
   subtitle: 'Heading 2',
   buttonLabel: 'Buy now',
-  buttonLink: '/red-dead-redemption-2'
+  buttonLink: '/red-dead-redemption-2',
+  backgroundImage: '/img/red-dead-redemption-2.png'
 }
 
 describe('<Highlight />', () => {
@@ -22,5 +24,13 @@ describe('<Highlight />', () => {
     expect(screen.getByRole('link', { name: /Buy now/i })).toBeInTheDocument()
 
     //expect(container.firstChild).toMatchSnapshot()
+  })
+
+  it('should render background image', () => {
+    const { container } = renderWithTheme(<Highlight {...props} />)
+
+    expect(container.firstChild).toHaveStyle({
+      backgroundImage: `url(${props.backgroundImage})`
+    })
   })
 })
