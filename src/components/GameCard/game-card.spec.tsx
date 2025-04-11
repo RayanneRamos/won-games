@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react'
 
 import GameCard from '.'
 import { renderWithTheme } from '@/utils/tests/helpers'
+import theme from '@/styles/theme'
 
 const props = {
   title: 'Population Zero',
@@ -30,7 +31,23 @@ describe('<GameCard />', () => {
     //expect(container.firstChild).toMatchSnapshot()
   })
 
-  it('should render price in label', () => {})
+  it('should render price in label', () => {
+    renderWithTheme(<GameCard {...props} />)
 
-  it('should render a line-through in price when promotional', () => {})
+    const price = screen.getByText('R$ 235,00')
+
+    expect(price).not.toHaveStyle({ TextDecoder: 'line-through' })
+    expect(price).toHaveStyle({ backgroundColor: theme.colors.secondary })
+  })
+
+  it('should render a line-through in price when promotional', () => {
+    renderWithTheme(<GameCard promotionalPrice="R$ 15,00" {...props} />)
+
+    expect(screen.getByText('R$ 235,00')).toHaveStyle({
+      TextDecoder: 'line-through'
+    })
+    expect(screen.getByText('R$ 15,00')).not.toHaveStyle({
+      TextDecoder: 'line-through'
+    })
+  })
 })
