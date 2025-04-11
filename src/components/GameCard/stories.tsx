@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
 import GameCard, { GameCardProps } from '.'
-import { backgrounds } from 'polished'
 
 export default {
   title: 'GameCard',
@@ -9,7 +8,13 @@ export default {
     title: 'Population Zero',
     developer: 'Rockstar Games',
     image: '/images/population-zero.png',
-    price: 'R$ 235,00'
+    price: 'R$ 235,00',
+    promotionalPrice: 'R$ 200,00'
+  },
+  parameters: {
+    backgrounds: {
+      default: 'dark'
+    }
   }
 } as Meta
 

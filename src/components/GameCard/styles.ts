@@ -12,8 +12,7 @@ export const Wrapper = styled.article`
 `
 
 export const ImageBox = styled.div`
-  min-height: 14rem;
-  position: relative;
+  height: 14rem;
   width: 100%;
   background: #f6f7f8;
   background-image: linear-gradient(
@@ -25,6 +24,12 @@ export const ImageBox = styled.div`
   );
   background-size: 80rem 14rem;
   animation: placeholderShimmer 1s linear infinite forwards;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
   @keyframes placeholderShimmer {
     0% {
@@ -50,7 +55,6 @@ export const Content = styled.div`
 
 export const Info = styled.div`
   max-width: calc(100% - 2.5rem);
-  text-decoration: none;
 `
 
 export const Title = styled.h3`
@@ -74,7 +78,7 @@ export const FavoriteButton = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.primary};
     position: absolute;
-    right: -1rem;
+    right: 0;
     top: -0.5rem;
     cursor: pointer;
 
@@ -93,11 +97,34 @@ export const BuyBox = styled.div`
   `}
 `
 
-export const Price = styled.div`
-  ${({ theme }) => css`
+type PriceProps = {
+  isPromotional?: boolean
+}
+
+const priceModifiers = {
+  default: (theme: DefaultTheme) => css`
+    color: ${theme.colors.white};
+    padding: 0 ${theme.spacings.xxsmall};
+    background-color: ${theme.colors.secondary};
+    border-radius: ${theme.border.radius};
+    margin-right: calc(${theme.spacings.xxsmall} / 2);
+  `,
+
+  promotional: (theme: DefaultTheme) => css`
+    color: ${theme.colors.gray};
+    text-decoration: line-through;
+    margin-right: ${theme.spacings.xsmall};
+  `
+}
+
+export const Price = styled.div<PriceProps>`
+  ${({ theme, isPromotional }) => css`
     display: inline-flex;
     font-weight: ${theme.font.bold};
     height: 3rem;
     align-items: center;
+
+    ${!isPromotional && priceModifiers.default(theme)}
+    ${isPromotional && priceModifiers.promotional(theme)}
   `}
 `

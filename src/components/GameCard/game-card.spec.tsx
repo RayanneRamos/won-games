@@ -29,4 +29,8 @@ describe('<GameCard />', () => {
 
     //expect(container.firstChild).toMatchSnapshot()
   })
+
+  it('should render price in label', () => {})
+
+  it('should render a line-through in price when promotional', () => {})
 })
