@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import GameCard, { GameCardProps } from '.'
+import { backgrounds } from 'polished'
 
 export default {
   title: 'GameCard',
