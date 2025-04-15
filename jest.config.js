@@ -11,7 +11,7 @@ module.exports = {
     '!src/**/stories.tsx'
   ],
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
-  modulePaths: ['<rootDir>/src/'],
+  modulePaths: ['<rootDir>/src/', '<rootDir>/.jest'],
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }]
   },
@@ -21,6 +21,7 @@ module.exports = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^styled-components':
-      'styled-components/dist/styled-components.browser.cjs.js'
+      'styled-components/dist/styled-components.browser.cjs.js',
+    '\\.(css|less|scss|sass)$': '<rootDir>/.jest/styleMock.js'
   }
 }
