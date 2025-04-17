@@ -2,7 +2,11 @@
 
 import { createGlobalStyle, css } from 'styled-components'
 
-export const GlobalStyles = createGlobalStyle`
+type GlobalStylesProps = {
+  removeBackground?: boolean
+}
+
+export const GlobalStyles = createGlobalStyle<GlobalStylesProps>`
   @font-face {
     font-display: swap;
     font-family: 'Poppins';
@@ -40,7 +44,7 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
-  ${({ theme }) => css`
+  ${({ theme, removeBackground }) => css`
     html {
       font-size: 62.5%;
     }
@@ -48,7 +52,11 @@ export const GlobalStyles = createGlobalStyle`
     body {
       font-family: ${theme.font.family};
       font-size: ${theme.font.sizes.medium};
-      background-color: ${theme.colors.mainBg};
+
+      ${!removeBackground &&
+      css`
+        background-color: ${theme.colors.mainBg};
+      `}
     }
   `}
 `
